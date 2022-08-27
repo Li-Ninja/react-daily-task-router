@@ -3,7 +3,8 @@ import {
   HashRouter,
   NavLink,
   Routes,
-  Route
+  Route,
+  useNavigate
 } from 'react-router-dom';
 
 const Home = () => {
@@ -11,9 +12,23 @@ const Home = () => {
   </p>;
 };
 const Todo = () => {
-  return <p>這是 Todo 頁面
-  </p>;
+  return <div>
+    <p>這是 Todo 頁面
+  </p>
+    <Logout />
+  </div>
 };
+
+const Logout = () => {
+  const navigate = useNavigate();
+
+  function logout() {
+    navigate('/login');
+  }
+
+  return <button onClick={() => logout()}>登出</button>;
+}
+
 const Login = () => {
   return <p>這是登入頁面</p>;
 };
